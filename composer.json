@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "Extension to delete IP addresses related to a phpBB user to be deleted",
     "homepage": "https://www.mike-on-tour.com",
-    "version": "1.0.1",
-    "time": "2020-10-01 22:49:11",
+    "version": "1.0.2",
+    "time": "2020-11-24 12:11:57",
     "license": "GPL-2.0-only",
     "authors": [
         {

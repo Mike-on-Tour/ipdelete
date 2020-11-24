@@ -1,6 +1,10 @@
 # IP Address Deletion
 
-![phpBB 3.2.x Compatible](./phpBB-3.2.x_kl.jpg) ![phpBB 3.2.x Compatible](./phpBB-3.3.x_kl.jpg)
+![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-green)  
+   
+![phpBB 3.1.x Compatible](https://img.shields.io/badge/phpBB-3.1.x%20Compatible-009BDF)
+![phpBB 3.2.x Compatible](https://img.shields.io/badge/phpBB-3.2.x%20Compatible-009BDF)
+![phpBB 3.3.x Compatible](https://img.shields.io/badge/phpBB-3.3.x%20Compatible-009BDF)  
 
 IP Address Deletion is an extension to the phpBB bulletin board software which ensures privacy and data protection by deleting user related IP addresses in all database tables original to phpBB when a user gets deleted.
 

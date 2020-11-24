@@ -4,6 +4,19 @@ All changes to `IP Address Deletion` (aka `ipdelete`) will be documented in this
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
   
+## [1.0.2] - 2020-11-24
+
+## Added
+
+## Changed
+
+## Fixed
+
+## Removed
+-	Removed the `banlist`, `sessions_keys` and `users` tables from the array of tables to be processed since user related content is already deleted by
+	phpBB's `user_delete` function or since there is no user related content within the `banlist' table
+  
+  
 ## [1.0.1] - 2020-10-01
 
 ### Added

@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package IP Address Deletion v1.0.1
+* @package IP Address Deletion v1.0.2
 * @copyright (c) 2020 Mike-on-Tour
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
@@ -54,19 +54,16 @@ class main_listener implements EventSubscriberInterface
 	public function delete_ip($event)
 	{
 		$user_ids = $event['user_ids'];
-		
+
 		$table_arr = array(
-			array('table' => BANLIST_TABLE,			'ip_name' => 'ban_ip',			'id_name' => 'ban_userid'),
 			array('table' => LOG_TABLE,				'ip_name' => 'log_ip',			'id_name' => 'user_id'),
 			array('table' => LOGIN_ATTEMPT_TABLE,	'ip_name' => 'attempt_ip',		'id_name' => 'user_id'),
 			array('table' => POLL_VOTES_TABLE,		'ip_name' => 'vote_user_ip',	'id_name' => 'vote_user_id'),
 			array('table' => POSTS_TABLE,			'ip_name' => 'poster_ip',		'id_name' => 'poster_id'),
 			array('table' => PRIVMSGS_TABLE,		'ip_name' => 'author_ip',		'id_name' => 'author_id'),
 			array('table' => SESSIONS_TABLE,		'ip_name' => 'session_ip',		'id_name' => 'session_user_id'),
-			array('table' => SESSIONS_KEYS_TABLE,	'ip_name' => 'last_ip',			'id_name' => 'user_id'),
-			array('table' => USERS_TABLE,			'ip_name' => 'user_ip',			'id_name' => 'user_id'),
 		);
-		
+
 		foreach ($table_arr as $row)
 		{
 			$sql = "UPDATE " . $row['table'] . "
