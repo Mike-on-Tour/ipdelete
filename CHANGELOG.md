@@ -3,6 +3,18 @@ All changes to `IP Address Deletion` (aka `ipdelete`) will be documented in this
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [1.0.3] - 2021-01-06
+
+## Added
+
+## Changed
+-	IP addresses of deleted users will be overwritten with an empty string instead of an invalid IP address (0:0:0:0 was used).
+
+## Fixed
+
+## Removed
+
   
 ## [1.0.2] - 2020-11-24
 

@@ -1,8 +1,8 @@
 <?php
 /**
 *
-* @package IP Address Deletion v1.0.2
-* @copyright (c) 2020 Mike-on-Tour
+* @package IP Address Deletion v1.0.3
+* @copyright (c) 2020 - 2021 Mike-on-Tour
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -67,7 +67,7 @@ class main_listener implements EventSubscriberInterface
 		foreach ($table_arr as $row)
 		{
 			$sql = "UPDATE " . $row['table'] . "
-					SET " . $row['ip_name'] . " = '0:0:0:0'
+					SET " . $row['ip_name'] . " = ''
 					WHERE " . $this->db->sql_in_set($row['id_name'], $user_ids);
 			$this->db->sql_query($sql);
 		}
