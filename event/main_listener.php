@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package IP Address Deletion v1.0.3
+* @package IP Address Deletion v1.1.0
 * @copyright (c) 2020 - 2021 Mike-on-Tour
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
@@ -42,7 +42,7 @@ class main_listener implements EventSubscriberInterface
 
 
 	/**
-	* Delete the IP stored with the user_id(s) belonging to users to be deleted in all phpBB tables by setting this entry to '0:0:0:0' to ensure data privacy
+	* Delete the IP stored with the user_id(s) belonging to users to be deleted in all phpBB tables by setting this entry to an empty string to ensure data privacy
 	*
 	* @param array	$event	containing:
 	*	@var string		mode				Mode of posts deletion (retain|delete)
@@ -70,6 +70,38 @@ class main_listener implements EventSubscriberInterface
 					SET " . $row['ip_name'] . " = ''
 					WHERE " . $this->db->sql_in_set($row['id_name'], $user_ids);
 			$this->db->sql_query($sql);
+		}
+
+		// check for posts assigned to another user
+		$sql = "SELECT post_id, log_data FROM " . LOG_TABLE . " WHERE log_operation = 'LOG_MCP_CHANGE_POSTER'";
+		$result = $this->db->sql_query($sql);
+		$logs = $this->db->sql_fetchrowset($result);
+		$this->db->sql_freeresult($result);
+
+		if (count($logs) > 0)
+		{
+			$user_rows = $event['user_rows'];
+			$posts_to_process = [];
+
+			foreach ($user_ids as $user_id)
+			{
+				$username = $user_rows[$user_id]['username'];
+				foreach ($logs as $row)
+				{
+					if (explode('"', $row['log_data'])[3] == $username)	// The second item of the log data array holds the username of the former author
+					{
+						$posts_to_process[] = $row['post_id'];
+					}
+				}
+			}
+
+			if (count($posts_to_process) > 0)
+			{
+				$sql = "UPDATE " . POSTS_TABLE . "
+					SET poster_ip = ''
+					WHERE " . $this->db->sql_in_set('post_id', $posts_to_process);
+				$this->db->sql_query($sql);
+			}
 		}
 	}
 
