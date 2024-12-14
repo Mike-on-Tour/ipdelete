@@ -1,8 +1,8 @@
 <?php
 /**
 *
-* @package IP Address Deletion v1.1.0
-* @copyright (c) 2020 - 2021 Mike-on-Tour
+* @package IP Address Deletion v1.2.0
+* @copyright (c) 2020 - 2024 Mike-on-Tour
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -22,9 +22,9 @@ class main_listener implements EventSubscriberInterface
 
 	public static function getSubscribedEvents()
 	{
-		return array(
+		return [
 			'core.delete_user_before'		=> 'delete_ip',
-		);
+		];
 	}
 
 	/** @var \phpbb\db\driver\driver_interface */
@@ -55,14 +55,14 @@ class main_listener implements EventSubscriberInterface
 	{
 		$user_ids = $event['user_ids'];
 
-		$table_arr = array(
-			array('table' => LOG_TABLE,				'ip_name' => 'log_ip',			'id_name' => 'user_id'),
-			array('table' => LOGIN_ATTEMPT_TABLE,	'ip_name' => 'attempt_ip',		'id_name' => 'user_id'),
-			array('table' => POLL_VOTES_TABLE,		'ip_name' => 'vote_user_ip',	'id_name' => 'vote_user_id'),
-			array('table' => POSTS_TABLE,			'ip_name' => 'poster_ip',		'id_name' => 'poster_id'),
-			array('table' => PRIVMSGS_TABLE,		'ip_name' => 'author_ip',		'id_name' => 'author_id'),
-			array('table' => SESSIONS_TABLE,		'ip_name' => 'session_ip',		'id_name' => 'session_user_id'),
-		);
+		$table_arr = [
+			['table' => LOG_TABLE,				'ip_name' => 'log_ip',			'id_name' => 'user_id'],
+			['table' => LOGIN_ATTEMPT_TABLE,	'ip_name' => 'attempt_ip',		'id_name' => 'user_id'],
+			['table' => POLL_VOTES_TABLE,		'ip_name' => 'vote_user_ip',	'id_name' => 'vote_user_id'],
+			['table' => POSTS_TABLE,			'ip_name' => 'poster_ip',		'id_name' => 'poster_id'],
+			['table' => PRIVMSGS_TABLE,			'ip_name' => 'author_ip',		'id_name' => 'author_id'],
+			['table' => SESSIONS_TABLE,			'ip_name' => 'session_ip',		'id_name' => 'session_user_id'],
+		];
 
 		foreach ($table_arr as $row)
 		{

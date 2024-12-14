@@ -4,6 +4,21 @@ All changes to `IP Address Deletion` (aka `ipdelete`) will be documented in this
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.2.0] - 2024-12-14
+
+### Added
+-	Checks for minimum and maximum versions of PHP and phpBB to the `ext.php`
+-	A `language` directory to hold the language files necessary for displaying error messages if `ipdelete` is to be avtivated on a system not fulfilling the criteria
+
+### Changed
+-	Maximum PHP version to 8.4.x
+-	Array notification to short form
+
+### Fixed
+
+### Removed
+
+  
 ## [1.1.0] - 2021-04-26
 
 ### Added
