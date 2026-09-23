@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "Extension to delete IP addresses related to a phpBB user to be deleted",
     "homepage": "https://www.mike-on-tour.com",
-    "version": "1.2.0",
-    "time": "2024-12-14 12:11:57",
+    "version": "1.3.0",
+    "time": "2026-09-22 12:11:57",
     "license": "GPL-2.0-only",
     "authors": [
         {
@@ -15,9 +15,9 @@
         }
     ],
     "require": {
-        "php": ">=7.2.0,<8.5.0",
-        "phpbb/phpbb": ">=3.2.4,<3.4.0@dev",
-        "composer/installers": "~1.0.0"
+        "php": ">=8.1.33, <8.7.0@dev",
+        "phpbb/phpbb": ">=3.3.9, <3.4.0@dev",
+        "composer/installers": "^1.0 || ^2.0"
     },
     "require-dev": {
         "phpbb/epv": "dev-master"
@@ -25,7 +25,7 @@
     "extra": {
         "display-name": "IP Address Deletion",
         "soft-require": {
-            "phpbb/phpbb": ">=3.2.4,<3.4.0@dev"
+            "phpbb/phpbb": ">=3.3.9, <3.4.0@dev"
         },
         "version-check": {
 			"host": "www.mike-on-tour.com",

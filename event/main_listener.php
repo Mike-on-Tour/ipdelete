@@ -1,22 +1,16 @@
 <?php
 /**
 *
-* @package IP Address Deletion v1.2.0
-* @copyright (c) 2020 - 2024 Mike-on-Tour
+* @package IP Address Deletion v1.3.0
+* @copyright (c) 2020 - 2026 Mike-on-Tour
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
 namespace mot\ipdelete\event;
 
-/**
- * @ignore
- */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-/**
- * Event listener
- */
 class main_listener implements EventSubscriberInterface
 {
 
@@ -27,17 +21,10 @@ class main_listener implements EventSubscriberInterface
 		];
 	}
 
-	/** @var \phpbb\db\driver\driver_interface */
-	protected $db;
-
-	/**
-	 * Constructor
-	 *
-	 * @param \phpbb\db\driver\driver_interface $db	Database object
-	 */
-	public function __construct(\phpbb\db\driver\driver_interface $db)
+	public function __construct(
+		protected \phpbb\db\driver\driver_interface $db
+	)
 	{
-		$this->db = $db;
 	}
 
 
@@ -51,7 +38,7 @@ class main_listener implements EventSubscriberInterface
 	*	@var array		user_rows			Array containing data of the user(s) bound to be deleted (since 3.2.4-RC1)
 	*
 	*/
-	public function delete_ip($event)
+	public function delete_ip(object $event)
 	{
 		$user_ids = $event['user_ids'];
 
@@ -104,5 +91,4 @@ class main_listener implements EventSubscriberInterface
 			}
 		}
 	}
-
 }

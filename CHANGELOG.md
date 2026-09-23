@@ -4,6 +4,23 @@ All changes to `IP Address Deletion` (aka `ipdelete`) will be documented in this
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.3.0] - 2026-09-22
+
+### Added
+-	A function to the `ext.php` file to get the minimum and maximum versions and their respective conditions from the `require` section of the `composer.json` file in order to
+	prevent errors due to the duplicate entries in those two files
+
+### Changed
+-	Minimum versions for PHP to 8.1.33 and phpBB to 3.3.9
+-	Maximum version for PHP to 8.6.x
+-	All constructor declarations to [Constructor Property Promotion](https://www.php.net/releases/8.0/de.php#constructor-property-promotion) (a new PHP feature starting with PHP 8.0)
+-	All function declarations into parameters with type declarations
+
+### Fixed
+
+### Removed
+
+  
 ## [1.2.0] - 2024-12-14
 
 ### Added
